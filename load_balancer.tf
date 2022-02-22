@@ -1,8 +1,8 @@
 resource "aws_lb" "lb" {
-  name               = "tf-lb"
+  name               = "tf-lb-nginx"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_default_security_group.security_group.id]
+  security_groups    = [aws_security_group.security_group_lb.id]
   subnets            = [aws_subnet.subnet-01.id, aws_subnet.subnet-02.id]
 }
 
