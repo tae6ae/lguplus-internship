@@ -1,0 +1,16 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:us-west-1:142904692278:task-definition/nginx-internship:4"
+        LoadBalancerInfo:
+          ContainerName: "nginx"
+          ContainerPort: 80
+# Optional properties
+        PlatformVersion: "1.4.0"
+        NetworkConfiguration:
+          AwsvpcConfiguration:
+            Subnets: ["subnet-0fb7bcb7ac894e0d9","subnet-03f93f14a3fb62511"]
+            SecurityGroups: ["sg-0fafce2fe73962c8e"]
+            AssignPublicIp: "ENABLED"
